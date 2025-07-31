@@ -79,7 +79,10 @@ st.markdown(f"""
 
 # Load and process CSV
 df = pd.read_csv("Notations Lab DATABASE.csv")
-df.fillna('', inplace=True)
+# Только для строковых колонок
+str_cols = df.select_dtypes(include='object').columns
+df[str_cols] = df[str_cols].fillna('')
+
 
 category_colors = {
     'artist': NODE_NAME_COLOR,
