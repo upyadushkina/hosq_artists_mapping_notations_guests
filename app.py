@@ -129,16 +129,16 @@ for _, row in df.iterrows():
     #        country, city = parts
 
     def clean_text(text):
-    if not isinstance(text, str):
-        return text
-    return (
-        text.replace("&", "&amp;")
-            .replace("<", "&lt;")
-            .replace(">", "&gt;")
-            .replace('"', "&quot;")
-            .replace("'", "&#39;")
-            .replace("@", "&#64;")
-    )
+        if not isinstance(text, str):
+            return text
+        return (
+            text.replace("&", "&amp;")
+                .replace("<", "&lt;")
+                .replace(">", "&gt;")
+                .replace('"', "&quot;")
+                .replace("'", "&#39;")
+                .replace("@", "&#64;")
+        )
 
     artist_info[artist_id] = {
         "name": clean_text(row['name']),
